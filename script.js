@@ -1,6 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
     console.log('DOM completamente cargado y analizado'); // Verifica en la consola
 
+    // Añadir la clase 'loaded' al body cuando la página esté completamente cargada
+    window.addEventListener('load', function () {
+        document.body.classList.add('loaded');
+    });
+
     const menuToggle = document.querySelector('.menu-toggle');
     const dropdownToggle = document.querySelector('.dropdown-toggle');
     const dropdownMenu = document.querySelector('.dropdown-menu');
@@ -50,4 +55,5 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+
 

@@ -24,13 +24,11 @@ body {
 
 /* Estilos para el header */
 header {
-    background-image: url('img/your-image.jfif'); /* Ruta actualizada a la imagen de fondo */
-    background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
-    background-position: center; /* Centra la imagen en el contenedor */
-    color: #fff;
+    background-color: #000000;
+    color: #ffffff;
     padding: 10px 0;
     position: relative;
-    margin-bottom: 50px;
+    margin-bottom: 20px; /* Reducción del espacio entre el header y el banner */
 }
 
 .header-container {
@@ -148,6 +146,61 @@ body.menu-open .dropdown-menu {
 .hero-content h2 {
     font-size: 2.5em;
     margin-bottom: 20px;
+}
+
+/* Estilo del banner .MET2BANNER */
+.MET2BANNER {
+    width: 100%; /* Asegura que el banner ocupe todo el ancho disponible */
+    background-color: #f8f9fa; /* Color de fondo suave */
+    padding: 0; /* Sin padding para eliminar el espacio interno */
+    text-align: center; /* Centra el texto y contenido dentro del banner */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
+    margin-bottom: 30px; /* Espacio debajo del banner */
+}
+
+/* Asegura que la imagen dentro del banner ocupe todo el ancho disponible */
+.MET2BANNER img {
+    width: 100%; /* Ajusta el ancho máximo de la imagen al ancho del banner */
+    height: auto; /* Mantiene la proporción de la imagen */
+    display: block; /* Elimina el espacio adicional debajo de la imagen */
+}
+
+/* Estilo inicial del banner */
+.MET2BANNER {
+    width: 100%;
+    background-color: #f8f9fa;
+    padding: 0;
+    text-align: center;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+    transform: scale(0.8); /* Comienza más pequeño */
+    opacity: 0; /* Inicialmente invisible */
+    transition: transform 0.6s ease-out, opacity 0.6s ease-out; /* Animación de entrada */
+}
+
+/* Estilo cuando la página está cargada */
+body.loaded .MET2BANNER {
+    transform: scale(1); /* Tamaño normal */
+    opacity: 1; /* Hacer visible el banner */
+}
+
+.hero {
+    background-image: url('https://i.imgur.com/Zmuzg62.gif'); /* Enlace a la imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    color: #000; /* Cambiado a negro para el texto principal */
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero-content h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #000; /* Cambiado a negro para el encabezado */
+}
+
+.hero-content p {
+    color: #000; /* Cambiado a negro para el párrafo */
 }
 
 .productos {
@@ -276,6 +329,23 @@ footer {
     .producto {
         width: 100%; /* Ocupa el 100% del ancho en pantallas pequeñas */
     }
+    .slider-control {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Ajustes Responsivos */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .header-container h1 {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+   
     .slider-control {
         width: 20px;
         height: 20px;
