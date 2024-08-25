@@ -3,124 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Metanoia - Venta de Suplementos</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- Incluyendo GSAP para las animaciones -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+    <title>Slider de Productos</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Asegúrate de que el archivo CSS esté en la misma carpeta o ajusta la ruta -->
 </head>
 <body>
-    <!-- Banner de mensaje -->
-    <div class="banner">
-        ¡Envíos Gratis a partir de $1,500 MXN!
-    </div>
-    
     <header>
         <div class="header-container">
-            <!-- Menú de hamburguesa -->
-            <button id="menu-toggle" class="menu-toggle" aria-label="Abrir menú">
-                <img src="img/menu.png" alt="Menú" />
+            <button class="menu-toggle">
+                <img src="menu-icon.png" alt="Menú">
             </button>
-            <!-- Agrega la imagen del logotipo -->
-            <img src="img/logo.png" alt="Logotipo Metanoia" class="logo">
-            <h1>Metanoia Suplementos</h1>
-            <nav>
-                <ul>
-                    <li><a href="#productos">Productos</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                    <li><a href="#carrito">Carrito</a></li>
-                </ul>
-            </nav>
+            <img src="logo.png" alt="Logotipo" class="logo">
+            <h1>Mi Tienda</h1>
         </div>
-
-        <!-- Menú desplegable -->
-        <div id="dropdown-menu" class="dropdown-menu">
-            <button class="dropdown-toggle" aria-label="Cerrar menú">
-                <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" class="icon icon-close" fill="none" viewBox="0 0 18 17">
-                    <path d="M.865 15.978a.5.5 0 00.707.707l7.433-7.431 7.579 7.282a.501.501 0 00.846-.37.5.5 0 00-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 10-.707-.708L8.991 7.853 1.413.573a.5.5 0 10-.693.72l7.563 7.268-7.418 7.417z"></path>
-                </svg>
-            </button>
+        <nav class="dropdown-menu">
+            <button class="dropdown-toggle">×</button>
             <ul class="dropdown-menu-content">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#todo">Todo</a></li>
-                <li><a href="#proteinas">Proteínas</a></li>
-                <li><a href="#oxidos">Óxidos</a></li>
-                <li><a href="#quemadores">Quemadores</a></li>
-                <li><a href="#aminoacidos">Aminoácidos</a></li>
-                <li><a href="#ganadores-de-peso">Ganadores de Peso</a></li>
-                <li><a href="#creatinas">Creatinas</a></li>
-                <li><a href="#vitaminas-minerales">Vitaminas y Minerales</a></li>
-                <li><a href="#precursores-testosterona">Precursores de Testosterona</a></li>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Productos</a></li>
+                <li><a href="#">Contacto</a></li>
             </ul>
-        </div>
+        </nav>
     </header>
-  <!-- Banner Metanoia -->
-<div class="MET2BANNER">
-    <img src="img/MET2.png" alt="Banner Metanoia">
-    <h2 class="banner__heading inline-richtext h1">
-        <!-- Aquí puedes añadir el texto del encabezado del banner -->
-    </h2>
-    <div class="banner__buttons">
-        <!-- Aquí puedes añadir botones o enlaces -->
-    </div>
-</div>
-    <section class="hero">
+
+    <div class="banner">¡Bienvenidos a nuestra tienda!</div>
+
+    <div class="hero">
         <div class="hero-content">
-            <h2>Encuentra los mejores suplementos para tu entrenamiento</h2>
-            <p>Alta calidad, resultados garantizados</p>
+            <h2>Las mejores ofertas del año</h2>
         </div>
-    </section>
-</div>
-    <section id="productos" class="productos">
+    </div>
+
+    <section class="productos">
         <h2>Productos Destacados</h2>
         <div class="slider">
-            <!-- Cada div representa un producto, puedes agregar más divs para otros productos -->
-            <div class="producto">
-                <img src="img/ONCASEIN.png" alt="Suplemento 1">
-                <h3>Suplemento 1</h3>
-                <p>Descripción del suplemento 1.</p>
-                <p class="precio">$19.99</p>
-                <button>Comprar</button>
+            <div class="slider-wrapper">
+                <!-- Repite este bloque para cada producto -->
+                <div class="slider-item">
+                    <div class="producto">
+                        <img src="producto1.jpg" alt="Producto 1">
+                        <h3>Nombre del Producto 1</h3>
+                        <p class="precio">$19.99</p>
+                    </div>
+                </div>
+                <div class="slider-item">
+                    <div class="producto">
+                        <img src="producto2.jpg" alt="Producto 2">
+                        <h3>Nombre del Producto 2</h3>
+                        <p class="precio">$29.99</p>
+                    </div>
+                </div>
+                <div class="slider-item">
+                    <div class="producto">
+                        <img src="producto3.jpg" alt="Producto 3">
+                        <h3>Nombre del Producto 3</h3>
+                        <p class="precio">$39.99</p>
+                    </div>
+                </div>
+                <div class="slider-item">
+                    <div class="producto">
+                        <img src="producto4.jpg" alt="Producto 4">
+                        <h3>Nombre del Producto 4</h3>
+                        <p class="precio">$49.99</p>
+                    </div>
+                </div>
+                <!-- Añade más productos según sea necesario -->
             </div>
-            <div class="producto">
-                <img src="img/DOBLECHOCOLATE.png" alt="Suplemento 2">
-                <h3>Suplemento 2</h3>
-                <p>Descripción del suplemento 2.</p>
-                <p class="precio">$29.99</p>
-                <button>Comprar</button>
+            <!-- Flechas de navegación -->
+            <button class="slider-control slider-control-prev">&#9664;</button>
+            <button class="slider-control slider-control-next">&#9654;</button>
+            <!-- Indicadores de posición -->
+            <div class="slider-indicators">
+                <span class="slider-indicator active"></span>
+                <span class="slider-indicator"></span>
+                <span class="slider-indicator"></span>
+                <span class="slider-indicator"></span>
             </div>
-            <div class="producto">
-                <img src="img/VANILLAICECREAM.png" alt="Suplemento 3">
-                <h3>Suplemento 3</h3>
-                <p>Descripción del suplemento 3.</p>
-                <p class="precio">$39.99</p>
-                <button>Comprar</button>
+        </div>
+    </section>
+                <!-- Añade más productos según sea necesario -->
             </div>
-            <div class="producto">
-                <img src="img/gold.png" alt="Suplemento 4">
-                <h3>Suplemento 4</h3>
-                <p>Descripción del suplemento 4.</p>
-                <p class="precio">$49.99</p>
-                <button>Comprar</button>
+            <!-- Flechas de navegación -->
+            <button class="slider-control slider-control-prev">&#9664;</button>
+            <button class="slider-control slider-control-next">&#9654;</button>
+            <!-- Indicadores de posición -->
+            <div class="slider-indicators">
+                <span class="slider-indicator"></span>
+                <span class="slider-indicator"></span>
+                <span class="slider-indicator"></span>
+                <span class="slider-indicator"></span>
             </div>
-            <!-- Agrega más productos aquí -->
         </div>
     </section>
 
-    <section id="contacto" class="contacto">
-        <h2>Contacto</h2>
-        <p>Para consultas o pedidos, contáctanos en:</p>
-        <p>Email: m.soportemty@gmail.com</p>
-        <p>Teléfono: (813) 404 02 71</p>
+    <section class="contacto">
+        <h2>Contáctanos</h2>
+        <form action="enviar.php" method="post">
+            <input type="text" name="nombre" placeholder="Tu Nombre" required>
+            <input type="email" name="email" placeholder="Tu Correo Electrónico" required>
+            <textarea name="mensaje" placeholder="Tu Mensaje" rows="4" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
     </section>
 
-    <footer>
-        <p>&copy; 2024 Metanoia Suplementos. Todos los derechos reservados.</p>
-    </footer>
-
-    <!-- Incluir el archivo de JavaScript -->
-    <script src="script.js"></script>
-     <!-- Incluye las bibliotecas de GSAP y ScrollTrigger -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.2/gsap.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script> <!-- Asegúrate de que el archivo JS esté en la misma carpeta o ajusta la ruta -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.1/gsap.min.js"></script>
 </body>
 </html>

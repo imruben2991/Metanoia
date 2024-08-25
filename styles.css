@@ -134,6 +134,7 @@ body.menu-open .dropdown-menu {
     opacity: 0;
 }
 
+/* Estilo para el hero */
 .hero {
     background-image: url('https://i.imgur.com/Zmuzg62.gif'); /* Enlace a la imagen de fondo */
     background-size: cover;
@@ -156,23 +157,6 @@ body.menu-open .dropdown-menu {
     text-align: center; /* Centra el texto y contenido dentro del banner */
     box-sizing: border-box; /* Incluye padding y borde en el ancho total */
     margin-bottom: 30px; /* Espacio debajo del banner */
-}
-
-/* Asegura que la imagen dentro del banner ocupe todo el ancho disponible */
-.MET2BANNER img {
-    width: 100%; /* Ajusta el ancho máximo de la imagen al ancho del banner */
-    height: auto; /* Mantiene la proporción de la imagen */
-    display: block; /* Elimina el espacio adicional debajo de la imagen */
-}
-
-/* Estilo inicial del banner */
-.MET2BANNER {
-    width: 100%;
-    background-color: #f8f9fa;
-    padding: 0;
-    text-align: center;
-    box-sizing: border-box;
-    margin-bottom: 30px;
     transform: scale(0.8); /* Comienza más pequeño */
     opacity: 0; /* Inicialmente invisible */
     transition: transform 0.6s ease-out, opacity 0.6s ease-out; /* Animación de entrada */
@@ -181,28 +165,10 @@ body.menu-open .dropdown-menu {
 /* Estilo cuando la página está cargada */
 body.loaded .MET2BANNER {
     transform: scale(1); /* Tamaño normal */
-    opacity: 1; /* Hacer visible el banner */
+    opacity: 1; /* Visible */
 }
 
-.hero {
-    background-image: url('https://i.imgur.com/Zmuzg62.gif'); /* Enlace a la imagen de fondo */
-    background-size: cover;
-    background-position: center;
-    color: #000; /* Cambiado a negro para el texto principal */
-    text-align: center;
-    padding: 100px 20px;
-}
-
-.hero-content h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    color: #000; /* Cambiado a negro para el encabezado */
-}
-
-.hero-content p {
-    color: #000; /* Cambiado a negro para el párrafo */
-}
-
+/* Estilo para los productos */
 .productos {
     padding: 20px;
     text-align: center;
@@ -212,13 +178,15 @@ body.loaded .MET2BANNER {
     margin-bottom: 20px;
 }
 
+/* Estilo para cada producto */
 .producto {
     display: inline-block;
-    width: 45%;
+    width: 23%; /* Ajusta el ancho del producto para mostrar 4 por fila */
     margin: 10px;
     border: 1px solid #ddd;
     padding: 10px;
     text-align: left;
+    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
 }
 
 .producto img {
@@ -231,123 +199,102 @@ body.loaded .MET2BANNER {
     color: #d9534f; /* Color del precio */
 }
 
-/* Estilo del slider */
+/* Slider */
+/* Slider */
 .slider {
     position: relative;
     overflow: hidden;
-    width: 100%;
-    max-width: 1000px;
-    margin: 20px auto; /* Centrado automático */
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para el slider */
+    width: 100%; /* Asegura que el slider cubra todo el ancho disponible */
+    margin: auto;
 }
 
 .slider-wrapper {
-    display: flex;
-    transition: transform 0.5s ease; /* Suaviza el desplazamiento del slider */
+    display: flex; /* Coloca los items en una fila horizontal */
+    transition: transform 0.5s ease; /* Animación suave al cambiar de slide */
+    width: 100%; /* Asegura que el wrapper cubra todo el ancho del slider */
 }
 
 .slider-item {
-    min-width: 100%;
-    box-sizing: border-box;
+    flex: 0 0 auto; /* Hace que cada item tenga un ancho fijo y no se redimensione */
+    width: 100%; /* Asegura que cada item ocupe todo el ancho del slider */
+    box-sizing: border-box; /* Incluye padding y border en el ancho total */
 }
 
-.slider-item img {
-    width: 100%;
-    border-radius: 10px; /* Bordes redondeados para las imágenes */
-}
-
-/* Flechas de navegación */
 .slider-control {
     position: absolute;
     top: 50%;
-    width: 30px;
-    height: 30px;
+    transform: translateY(-50%);
     background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
+    color: white;
     border: none;
     cursor: pointer;
-    transform: translateY(-50%);
+    padding: 10px;
+    z-index: 1000; /* Asegura que las flechas estén por encima de otros elementos */
 }
 
 .slider-control-prev {
-    left: 10px;
+    left: 10px; /* Ajusta la posición de la flecha previa */
 }
 
 .slider-control-next {
-    right: 10px;
+    right: 10px; /* Ajusta la posición de la flecha siguiente */
 }
 
-/* Indicadores de posición del slider */
 .slider-indicators {
     position: absolute;
-    bottom: 10px;
+    bottom: 10px; /* Coloca los indicadores en la parte inferior del slider */
     left: 50%;
     transform: translateX(-50%);
     display: flex;
+    gap: 5px;
 }
 
 .slider-indicator {
     width: 10px;
     height: 10px;
-    background-color: rgba(255, 255, 255, 0.5);
     border-radius: 50%;
-    margin: 0 5px;
+    background-color: rgba(0, 0, 0, 0.5);
     cursor: pointer;
 }
 
 .slider-indicator.active {
-    background-color: #fff;
+    background-color: white;
 }
-
 .contacto {
     background-color: #f7f7f7;
     padding: 20px;
     text-align: center;
 }
 
-footer {
-    background-color: #111;
-    color: #fff;
-    text-align: center;
-    padding: 10px;
-    position: fixed;
+.contacto h2 {
+    margin-bottom: 20px;
+}
+
+.contacto form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contacto input, .contacto textarea {
     width: 100%;
-    bottom: 0;
+    max-width: 500px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
 }
 
-/* Diseño Responsivo */
-@media (max-width: 768px) {
-    .header-container {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .header-container h1 {
-        margin-left: 0;
-        margin-top: 10px;
-    }
-    .producto {
-        width: 100%; /* Ocupa el 100% del ancho en pantallas pequeñas */
-    }
-    .slider-control {
-        width: 20px;
-        height: 20px;
-    }
+.contacto button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #d9534f; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-/* Ajustes Responsivos */
-@media (max-width: 768px) {
-    .header-container {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .header-container h1 {
-        margin-left: 0;
-        margin-top: 10px;
-    }
-   
-    .slider-control {
-        width: 20px;
-        height: 20px;
-    }
+.contacto button:hover {
+    background-color: #c9302c; /* Color del botón al pasar el ratón */
 }
