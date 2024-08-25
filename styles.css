@@ -1,0 +1,283 @@
+/* Reset de estilo básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+/* Estilo del banner */
+.banner {
+    background-color: #d9534f; /* Color de fondo rojo */
+    color: #fff; /* Color de texto blanco */
+    text-align: center;
+    padding: 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+    z-index: 1000; /* Asegura que esté sobre otros elementos */
+}
+
+/* Estilos para el header */
+header {
+    background-image: url('img/your-image.jfif'); /* Ruta actualizada a la imagen de fondo */
+    background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor */
+    background-position: center; /* Centra la imagen en el contenedor */
+    color: #fff;
+    padding: 10px 0;
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.header-container {
+    display: flex;
+    align-items: center; /* Alinea verticalmente los elementos */
+    padding: 0 20px; /* Ajusta el padding según sea necesario */
+}
+
+.header-container h1 {
+    margin-left: 20px; /* Espacio entre el logotipo y el título */
+    flex-grow: 1; /* Permite que el título ocupe el espacio disponible */
+}
+
+/* Ajustar el tamaño y margen del logotipo */
+.logo {
+    max-width: 150px; /* Ajusta el tamaño del logotipo según sea necesario */
+    height: auto;
+}
+
+/* Estilos para el botón del menú de hamburguesa */
+.menu-toggle {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    display: block;
+    width: 30px; /* Ancho del botón del menú de hamburguesa igual al del logotipo */
+    height: auto; /* Mantener proporciones adecuadas */
+    padding: 0; /* Sin relleno */
+    margin-left: 10px; /* Espacio entre el logotipo y el botón del menú */
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.menu-toggle img {
+    width: 100%; /* Ajusta la imagen al tamaño del botón */
+    height: auto;
+}
+
+/* Efecto al hacer clic en el botón */
+.menu-toggle:active {
+    transform: scale(0.9); /* Reduce el tamaño del botón al hacer clic */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Agrega una sombra para un efecto de profundidad */
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo blanco con opacidad al hacer clic */
+}
+
+/* Estilos para el menú de hamburguesa */
+.dropdown-menu {
+    display: none; /* Ocultar el menú desplegable por defecto */
+    position: absolute;
+    top: 100%; /* Posicionar justo debajo del header */
+    left: 0;
+    background-color: rgba(17, 17, 17, 0.8); /* Fondo negro con 80% de opacidad */
+    color: #fff;
+    width: 100%; /* Asegura que el menú tenga el mismo ancho que el header */
+    max-width: 200px; /* Ancho máximo del menú desplegable */
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000; /* Asegura que esté sobre otros elementos */
+    transition: opacity 0.3s ease; /* Añade una transición para la opacidad */
+}
+
+.dropdown-menu-content {
+    list-style: none;
+    padding: 0;
+}
+
+.dropdown-menu-content li {
+    margin: 0;
+}
+
+.dropdown-menu-content li a {
+    display: block;
+    padding: 10px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.dropdown-menu-content li a:hover {
+    background-color: #333;
+}
+
+/* Estilos para el botón de cerrar del menú desplegable */
+.dropdown-toggle {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Mostrar el menú desplegable cuando se activa el botón de hamburguesa */
+body.menu-open .dropdown-menu {
+    display: block;
+    opacity: 1; /* Asegura que el menú sea visible */
+}
+
+/* Opcional: Efecto de desvanecimiento cuando el menú está oculto */
+.dropdown-menu {
+    opacity: 0;
+}
+
+.hero {
+    background-image: url('https://i.imgur.com/Zmuzg62.gif'); /* Enlace a la imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero-content h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.productos {
+    padding: 20px;
+    text-align: center;
+}
+
+.productos h2 {
+    margin-bottom: 20px;
+}
+
+.producto {
+    display: inline-block;
+    width: 45%;
+    margin: 10px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.producto img {
+    width: 100%;
+    height: auto;
+}
+
+.precio {
+    font-size: 1.5em;
+    color: #d9534f; /* Color del precio */
+}
+
+/* Estilo del slider */
+.slider {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 1000px;
+    margin: 20px auto; /* Centrado automático */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para el slider */
+}
+
+.slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease; /* Suaviza el desplazamiento del slider */
+}
+
+.slider-item {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+.slider-item img {
+    width: 100%;
+    border-radius: 10px; /* Bordes redondeados para las imágenes */
+}
+
+/* Flechas de navegación */
+.slider-control {
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transform: translateY(-50%);
+}
+
+.slider-control-prev {
+    left: 10px;
+}
+
+.slider-control-next {
+    right: 10px;
+}
+
+/* Indicadores de posición del slider */
+.slider-indicators {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.slider-indicator {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.slider-indicator.active {
+    background-color: #fff;
+}
+
+.contacto {
+    background-color: #f7f7f7;
+    padding: 20px;
+    text-align: center;
+}
+
+footer {
+    background-color: #111;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Diseño Responsivo */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .header-container h1 {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+    .producto {
+        width: 100%; /* Ocupa el 100% del ancho en pantallas pequeñas */
+    }
+    .slider-control {
+        width: 20px;
+        height: 20px;
+    }
+}
