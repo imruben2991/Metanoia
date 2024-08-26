@@ -6,49 +6,18 @@ document.addEventListener('DOMContentLoaded', function () {
         document.body.classList.add('loaded');
     });
 
-    // Selección de elementos
-    const menuToggle = document.querySelector('.menu-toggle');
+    const menuToggle = document.querySelector('#menu-toggle');
     const dropdownToggle = document.querySelector('.dropdown-toggle');
     const dropdownMenu = document.querySelector('.dropdown-menu');
-    const sliderWrapper = document.querySelector('.slider-wrapper');
+    const sliderWrapper = document.querySelector('.slider-wrapper'); // Asegúrate de que la clase sea 'slider-wrapper'
     const prevButton = document.querySelector('.slider-control-prev');
     const nextButton = document.querySelector('.slider-control-next');
-    const indicators = document.querySelectorAll('.slider-indicator');
+    const indicatorsContainer = document.querySelector('.slider-indicators'); // Contenedor para los indicadores
     const slides = document.querySelectorAll('.slider-item');
-    let currentIndex = 0;
-    const itemsPerPage = 1; // Cambia esto según el número de items visibles en una página
+    const itemsPerPage = 1; // Muestra un producto por vez
     const totalItems = slides.length;
-    const totalPages = Math.ceil(totalItems / itemsPerPage);
-
-    // Función para actualizar el slider
-    function updateSlider() {
-        const offset = -currentIndex * (100 / totalPages);
-        gsap.to(sliderWrapper, {
-            x: `${offset}%`,
-            duration: 0.5
-        });
-        indicators.forEach((indicator, index) => {
-            indicator.style.backgroundColor = index === Math.floor(currentIndex / itemsPerPage) ? 'white' : 'rgba(0, 0, 0, 0.5)';
-        });
-    }
-
-    // Función para mostrar el slide anterior
-    function showPrevSlide() {
-        currentIndex = (currentIndex - itemsPerPage + totalItems) % totalItems;
-        updateSlider();
-    }
-
-    // Función para mostrar el siguiente slide
-    function showNextSlide() {
-        currentIndex = (currentIndex + itemsPerPage) % totalItems;
-        updateSlider();
-    }
-
-    // Controladores de eventos para los botones de navegación
-    if (prevButton && nextButton) {
-        prevButton.addEventListener('click', showPrevSlide);
-        nextButton.addEventListener('click', showNextSlide);
-    }
+    const totalPages = Math.ceil(totalItems / itemsPerPage); // Número total de páginas
+    let currentIndex = 0;
 
     // Manejo del menú desplegable
     if (menuToggle && dropdownToggle && dropdownMenu) {
@@ -56,7 +25,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
         menuToggle.addEventListener('click', function () {
             menuOpen = !menuOpen;
-            document.body.classList.toggle('menu-open', menuOpen);
+
+            if (menuOpen) {
+                document.body.classList.add('menu-open');
+            } else {
+                document.body.classList.remove('menu-open');
+            }
         });
 
         dropdownToggle.addEventListener('click', function () {
@@ -71,6 +45,56 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }
+
+    // Función para actualizar el slider
+    function updateSlider() {
+        const offset = -currentIndex * (100 / totalPages); // Mueve en porcentaje basado en el número total de páginas
+        gsap.to(sliderWrapper, {
+            x: `${offset}%`,
+            duration: 0.8, // Duración ajustada para un movimiento más suave
+            ease: 'ease-in-out'
+        });
+
+        // Actualiza los indicadores
+        if (indicatorsContainer) {
+            indicatorsContainer.innerHTML = ''; // Limpia los indicadores existentes
+            for (let i = 0; i < totalPages; i++) {
+                const indicator = document.createElement('div');
+                indicator.classList.add('slider-indicator');
+                if (i === Math.floor(currentIndex / itemsPerPage)) {
+                    indicator.classList.add('active');
+                }
+                indicatorsContainer.appendChild(indicator);
+            }
+        }
+    }
+
+    // Función para mostrar el slide anterior
+    function showPrevSlide() {
+        if (currentIndex > 0) {
+            currentIndex -= itemsPerPage;
+        } else {
+            currentIndex = (totalItems - itemsPerPage); // Ir al último conjunto de slides
+        }
+        updateSlider();
+    }
+
+    // Función para mostrar el siguiente slide
+    function showNextSlide() {
+        if (currentIndex < (totalItems - itemsPerPage)) {
+            currentIndex += itemsPerPage;
+        } else {
+            currentIndex = 0; // Regresar al primer conjunto de slides
+        }
+        updateSlider();
+    }
+
+    // Controladores de eventos para los botones de navegación
+    if (prevButton && nextButton) {
+        prevButton.addEventListener('click', showPrevSlide);
+        nextButton.addEventListener('click', showNextSlide);
+    }
+
+    // Inicializa el slider en la posición correcta
+    updateSlider(); // Se asegura de que el slider comience en el primer conjunto de elementos sin moverse automáticamente
 });
-
-

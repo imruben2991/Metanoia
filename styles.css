@@ -12,7 +12,7 @@ body {
 
 /* Estilo del banner */
 .banner {
-    background-color: #d9534f; /* Color de fondo rojo */
+    background-color: #fa140c; /* Color de fondo rojo */
     color: #fff; /* Color de texto blanco */
     text-align: center;
     padding: 10px 0;
@@ -134,19 +134,23 @@ body.menu-open .dropdown-menu {
     opacity: 0;
 }
 
-/* Estilo para el hero */
 .hero {
     background-image: url('https://i.imgur.com/Zmuzg62.gif'); /* Enlace a la imagen de fondo */
     background-size: cover;
     background-position: center;
-    color: #fff;
+    color: #000; /* Cambiado a negro para el texto principal */
     text-align: center;
-    padding: 100px 20px;
+    padding: 80px 20px; /* Ajustado para un mejor equilibrio */
 }
 
 .hero-content h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
+    font-size: 2em; /* Ajustado para mejor visibilidad */
+    margin-bottom: 10px;
+    color: #000; /* Cambiado a negro para el encabezado */
+}
+
+.hero-content p {
+    color: #000; /* Cambiado a negro para el párrafo */
 }
 
 /* Estilo del banner .MET2BANNER */
@@ -157,6 +161,23 @@ body.menu-open .dropdown-menu {
     text-align: center; /* Centra el texto y contenido dentro del banner */
     box-sizing: border-box; /* Incluye padding y borde en el ancho total */
     margin-bottom: 30px; /* Espacio debajo del banner */
+}
+
+/* Asegura que la imagen dentro del banner ocupe todo el ancho disponible */
+.MET2BANNER img {
+    width: 100%; /* Ajusta el ancho máximo de la imagen al ancho del banner */
+    height: auto; /* Mantiene la proporción de la imagen */
+    display: block; /* Elimina el espacio adicional debajo de la imagen */
+}
+
+/* Estilo inicial del banner */
+.MET2BANNER {
+    width: 100%;
+    background-color: #f8f9fa;
+    padding: 0;
+    text-align: center;
+    box-sizing: border-box;
+    margin-bottom: 30px;
     transform: scale(0.8); /* Comienza más pequeño */
     opacity: 0; /* Inicialmente invisible */
     transition: transform 0.6s ease-out, opacity 0.6s ease-out; /* Animación de entrada */
@@ -165,10 +186,31 @@ body.menu-open .dropdown-menu {
 /* Estilo cuando la página está cargada */
 body.loaded .MET2BANNER {
     transform: scale(1); /* Tamaño normal */
-    opacity: 1; /* Visible */
+    opacity: 1; /* Hacer visible el banner */
 }
 
-/* Estilo para los productos */
+/* Sección de logos de marcas */
+.brand-logos {
+    background-color: #ffffff; /* Fondo blanco para la sección */
+    padding: 3px 0; /* Espaciado arriba y abajo */
+    text-align: center; /* Centra el contenido dentro de la sección */
+}
+
+.brand-logos-content {
+    display: flex; /* Coloca las imágenes en una fila horizontal */
+    justify-content: center; /* Centra las imágenes horizontalmente */
+    align-items: center; /* Alinea las imágenes verticalmente */
+    gap: 150px; /* Espacio entre las imágenes */
+    flex-wrap: wrap; /* Permite que las imágenes se ajusten si es necesario */
+}
+
+.brand-logo {
+    max-width: 100px; /* Ajusta el tamaño máximo de las imágenes */
+    height: auto; /* Mantiene la proporción de aspecto de las imágenes */
+    flex: 0 0 auto; /* Ajusta el tamaño de las imágenes sin cambiar su proporción */
+}
+
+
 .productos {
     padding: 20px;
     text-align: center;
@@ -178,46 +220,64 @@ body.loaded .MET2BANNER {
     margin-bottom: 20px;
 }
 
-/* Estilo para cada producto */
 .producto {
     display: inline-block;
-    width: 23%; /* Ajusta el ancho del producto para mostrar 4 por fila */
+    width: 30%; /* Ajustado para que las imágenes sean más grandes y el contenedor se vea mejor */
     margin: 10px;
     border: 1px solid #ddd;
     padding: 10px;
     text-align: left;
-    box-sizing: border-box; /* Incluye padding y borde en el ancho total */
 }
 
 .producto img {
-    width: 100%;
+    width: 100%; /* Ocupa el 100% del ancho del contenedor del producto */
     height: auto;
 }
 
 .precio {
-    font-size: 1.5em;
+    font-size: 1.2em; /* Ajustado para mejorar la visibilidad del precio */
     color: #d9534f; /* Color del precio */
 }
 
-/* Slider */
-/* Slider */
+
+/* Estilos del slider */
 .slider {
     position: relative;
     overflow: hidden;
-    width: 100%; /* Asegura que el slider cubra todo el ancho disponible */
-    margin: auto;
+    width: 100%; /* Ocupa el ancho completo de la página */
+    max-width: 1200px; /* Ajusta el máximo ancho del slider si es necesario */
+    margin: 0 auto; /* Centra el slider horizontalmente */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para el slider */
+    height: 400px; /* Ajusta la altura del slider según sea necesario */
 }
 
 .slider-wrapper {
     display: flex; /* Coloca los items en una fila horizontal */
-    transition: transform 0.5s ease; /* Animación suave al cambiar de slide */
+    transition: transform 0.8s ease-in-out; /* Animación suave al cambiar de slide */
     width: 100%; /* Asegura que el wrapper cubra todo el ancho del slider */
+    height: 100%; /* Asegura que el wrapper tenga la misma altura que el slider */
 }
 
 .slider-item {
-    flex: 0 0 auto; /* Hace que cada item tenga un ancho fijo y no se redimensione */
-    width: 100%; /* Asegura que cada item ocupe todo el ancho del slider */
-    box-sizing: border-box; /* Incluye padding y border en el ancho total */
+    flex: 0 0 25%; /* Muestra 4 elementos por página (100% / 4) */
+    box-sizing: border-box;
+    padding: 10px; /* Ajusta el padding para mejorar el tamaño visible */
+    height: 100%; /* Ajusta la altura del contenedor de cada imagen al 100% del slider */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider-item .producto {
+    text-align: center; /* Centra el contenido del producto */
+}
+
+.slider-item img {
+    width: 100%; /* Asegura que las imágenes se ajusten al contenedor */
+    height: auto; /* Mantiene la proporción de aspecto de la imagen */
+    max-height: 100%; /* Limita la altura máxima de la imagen para que no se estire fuera del contenedor */
+    object-fit: cover; /* Asegura que la imagen cubra todo el contenedor sin distorsión */
 }
 
 .slider-control {
@@ -260,41 +320,175 @@ body.loaded .MET2BANNER {
 .slider-indicator.active {
     background-color: white;
 }
+
+.view-all {
+    display: block;
+    width: 200px;
+    margin: 20px auto 0; /* Ajusta la separación superior con margin-top */
+    padding: 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Botón "contacto" */
 .contacto {
     background-color: #f7f7f7;
     padding: 20px;
     text-align: center;
 }
 
-.contacto h2 {
+
+
+/* Estilos para la sección de productos */
+#nuestros-productos {
+    text-align: center;
+    padding: 50px 0;
+    background-color: #000; /* Fondo negro para la sección */
+}
+
+#nuestros-productos h2 {
+    color: #fff; /* Título en blanco */
+    font-size: 2rem;
     margin-bottom: 20px;
 }
 
-.contacto form {
+/* Estilos para la sección de productos */
+#nuestros-productos {
+    text-align: center;
+    padding: 50px 0;
+    background-color: #000; /* Fondo negro para la sección */
+}
+
+#nuestros-productos h2 {
+    color: #fff; /* Título en blanco */
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Estilos para la sección de productos */
+#nuestros-productos {
+    text-align: left; /* Alinea el texto a la izquierda */
+    padding: 50px 0;
+    background-color: #000; /* Fondo negro para la sección */
+}
+
+#nuestros-productos h2 {
+    color: #fff; /* Título en blanco */
+    font-size: 2rem;
+    margin-bottom: 20px;
+    margin-left: 20px; /* Añade margen a la izquierda para espaciar el título del borde */
+}
+
+/* Estilos para la galería de productos */
+.galeria-productos {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 15px; /* Espacio entre los productos */
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.contacto input, .contacto textarea {
+.producto {
+    background-color: #fff; /* Fondo blanco para los productos */
+    border-radius: 10px; /* Bordes curvos */
+    padding: 15px; /* Reducido el padding */
+    text-align: center;
+    flex: 1 1 calc(20% - 15px); /* Cada producto ocupa un 20% del ancho menos el gap */
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones para el efecto hover */
+}
+
+.producto:hover {
+    transform: translateY(-10px); /* Mueve el producto hacia arriba al pasar el cursor */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Añade sombra al pasar el cursor */
+}
+
+.producto img {
     width: 100%;
-    max-width: 500px;
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    height: auto;
+    border-radius: 10px; /* Bordes curvos para las imágenes */
+    background-color: #fff; /* Fondo blanco para las imágenes */
+    padding: 5px; /* Reducido el padding de la imagen */
+    transition: transform 0.3s ease; /* Transición para el efecto de la imagen */
 }
 
-.contacto button {
-    padding: 10px 20px;
+.producto img:hover {
+    transform: scale(1.1); /* Amplía la imagen al pasar el cursor */
+}
+
+.producto h3 {
+    color: #000; /* Título del producto en negro */
+    margin: 10px 0 5px;
+    font-size: 1rem; /* Reducido el tamaño de la fuente */
+}
+
+.producto p {
+    color: #000; /* Texto en negro */
+    margin-bottom: 5px;
+    font-size: 0.9rem; /* Reducido el tamaño de la fuente */
+}
+
+.producto .precio {
+    font-size: 1.2rem; /* Reducido el tamaño de la fuente */
+    font-weight: bold;
+    color: #007bff; /* Color azul para el precio */
+    margin-bottom: 10px;
+}
+
+.producto button {
+    background-color: #007bff;
+    color: #fff;
     border: none;
-    background-color: #d9534f; /* Color de fondo del botón */
-    color: #fff; /* Color del texto del botón */
-    font-size: 16px;
+    padding: 8px 16px; /* Reducido el padding del botón */
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 0.9rem; /* Reducido el tamaño de la fuente */
 }
 
-.contacto button:hover {
-    background-color: #c9302c; /* Color del botón al pasar el ratón */
+.producto button:hover {
+    background-color: #0056b3;
+}
+
+
+.contacto {
+    background-color: #f7f7f7;
+    padding: 20px;
+    text-align: center;
+}
+
+footer {
+    background-color: #111;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Diseño Responsivo */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .header-container h1 {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+    .producto {
+        width: 100%; /* Ocupa el 100% del ancho en pantallas pequeñas */
+    }
+    .slider-control {
+        width: 20px;
+        height: 20px;
+    }
 }
