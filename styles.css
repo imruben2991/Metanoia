@@ -18,25 +18,33 @@ body {
     padding: 10px 0;
     font-size: 18px;
     font-weight: bold;
-    position: relative;
-    z-index: 1000; /* Asegura que esté sobre otros elementos */
+    position: fixed; /* Fija el banner en la parte superior */
+    top: 0; /* Alinea el banner con la parte superior de la página */
+    left: 0; /* Alinea el banner con el borde izquierdo de la página */
+    width: 100%; /* Asegura que el banner ocupe todo el ancho de la página */
+    z-index: 2000; /* Asegura que el banner esté por encima del header */
 }
 
 /* Estilos para el header */
 header {
-    background-color: #000000;
-    color: #ffffff;
-    padding: 10px 0;
-    position: relative;
-    margin-bottom: 20px; /* Reducción del espacio entre el header y el banner */
+    background-color: #000000; /* Fondo negro */
+    color: #ffffff; /* Color del texto blanco */
+    padding: 20px 0; /* Aumenta la altura del header */
+    position: fixed; /* Fija el header en la parte superior */
+    top: 40px; /* Ajusta la posición para que esté justo debajo del banner */
+    left: 0; /* Alinea el header con el borde izquierdo */
+    width: 100%; /* Asegura que el header ocupe todo el ancho de la página */
+    z-index: 1000; /* Asegura que el header esté por debajo del banner */
 }
 
+/* Contenedor del header */
 .header-container {
     display: flex;
     align-items: center; /* Alinea verticalmente los elementos */
     padding: 0 20px; /* Ajusta el padding según sea necesario */
 }
 
+/* Estilos para el título dentro del contenedor del header */
 .header-container h1 {
     margin-left: 20px; /* Espacio entre el logotipo y el título */
     flex-grow: 1; /* Permite que el título ocupe el espacio disponible */
@@ -86,6 +94,7 @@ header {
     color: #fff;
     width: 100%; /* Asegura que el menú tenga el mismo ancho que el header */
     max-width: 200px; /* Ancho máximo del menú desplegable */
+    height: 1000px; /* Ajusta la altura máxima del menú */
     padding: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1000; /* Asegura que esté sobre otros elementos */
@@ -98,7 +107,7 @@ header {
 }
 
 .dropdown-menu-content li {
-    margin: 0;
+    margin: 8px;
 }
 
 .dropdown-menu-content li a {
@@ -123,6 +132,12 @@ header {
     margin-bottom: 10px;
 }
 
+/* Transforma el botón en una X cuando el menú está abierto */
+.menu-toggle.open {
+    transform: rotate(45deg); /* Rotación para formar una X */
+}
+
+
 /* Mostrar el menú desplegable cuando se activa el botón de hamburguesa */
 body.menu-open .dropdown-menu {
     display: block;
@@ -134,23 +149,9 @@ body.menu-open .dropdown-menu {
     opacity: 0;
 }
 
-.hero {
-    background-image: url('https://i.imgur.com/Zmuzg62.gif'); /* Enlace a la imagen de fondo */
-    background-size: cover;
-    background-position: center;
-    color: #000; /* Cambiado a negro para el texto principal */
-    text-align: center;
-    padding: 80px 20px; /* Ajustado para un mejor equilibrio */
-}
-
-.hero-content h2 {
-    font-size: 2em; /* Ajustado para mejor visibilidad */
-    margin-bottom: 10px;
-    color: #000; /* Cambiado a negro para el encabezado */
-}
-
-.hero-content p {
-    color: #000; /* Cambiado a negro para el párrafo */
+/* Bloquear el desplazamiento de la página cuando el menú está abierto */
+body.menu-open {
+    overflow: hidden; /* Bloquea el desplazamiento de la página */
 }
 
 /* Estilo del banner .MET2BANNER */
@@ -160,7 +161,12 @@ body.menu-open .dropdown-menu {
     padding: 0; /* Sin padding para eliminar el espacio interno */
     text-align: center; /* Centra el texto y contenido dentro del banner */
     box-sizing: border-box; /* Incluye padding y borde en el ancho total */
-    margin-bottom: 30px; /* Espacio debajo del banner */
+    margin-top: 195px; /* Ajusta el banner justo debajo del header */
+    left: 0; /* Alinea el banner con el borde izquierdo */
+    z-index: 1500; /* Asegura que el banner esté por encima del contenido */
+    transform: scale(0.8); /* Comienza más pequeño */
+    opacity: 0; /* Inicialmente invisible */
+    transition: transform 0.6s ease-out, opacity 0.6s ease-out; /* Animación de entrada */
 }
 
 /* Asegura que la imagen dentro del banner ocupe todo el ancho disponible */
@@ -168,19 +174,6 @@ body.menu-open .dropdown-menu {
     width: 100%; /* Ajusta el ancho máximo de la imagen al ancho del banner */
     height: auto; /* Mantiene la proporción de la imagen */
     display: block; /* Elimina el espacio adicional debajo de la imagen */
-}
-
-/* Estilo inicial del banner */
-.MET2BANNER {
-    width: 100%;
-    background-color: #f8f9fa;
-    padding: 0;
-    text-align: center;
-    box-sizing: border-box;
-    margin-bottom: 30px;
-    transform: scale(0.8); /* Comienza más pequeño */
-    opacity: 0; /* Inicialmente invisible */
-    transition: transform 0.6s ease-out, opacity 0.6s ease-out; /* Animación de entrada */
 }
 
 /* Estilo cuando la página está cargada */
@@ -239,6 +232,20 @@ body.loaded .MET2BANNER {
     color: #d9534f; /* Color del precio */
 }
 
+.protein-promo {
+    background-color: #f4f4f4; /* Fondo gris claro */
+    padding: 20px; /* Espaciado interno */
+    margin-left: 40px; /* Margen a la izquierda */
+    margin-top: 20px; /* Margen superior */
+    border-left: 5px solid  #0056b3; /* Borde rojo a la izquierda */
+}
+
+.protein-promo h1 {
+    font-size: 24px;
+    color: #333; /* Color de texto oscuro */
+    margin: 0; /* Elimina el margen predeterminado */
+}
+
 
 /* Estilos del slider */
 .slider {
@@ -252,6 +259,7 @@ body.loaded .MET2BANNER {
     height: 400px; /* Ajusta la altura del slider según sea necesario */
 }
 
+/* Contenedor de los elementos del slider */
 .slider-wrapper {
     display: flex; /* Coloca los items en una fila horizontal */
     transition: transform 0.8s ease-in-out; /* Animación suave al cambiar de slide */
@@ -259,8 +267,9 @@ body.loaded .MET2BANNER {
     height: 100%; /* Asegura que el wrapper tenga la misma altura que el slider */
 }
 
+/* Cada elemento del slider */
 .slider-item {
-    flex: 0 0 25%; /* Muestra 4 elementos por página (100% / 4) */
+    flex: 0 0 25%; /* Ajustado para mostrar 4 elementos por página (100% / 4) */
     box-sizing: border-box;
     padding: 10px; /* Ajusta el padding para mejorar el tamaño visible */
     height: 100%; /* Ajusta la altura del contenedor de cada imagen al 100% del slider */
@@ -269,6 +278,7 @@ body.loaded .MET2BANNER {
     align-items: center;
 }
 
+/* Contenido del producto */
 .slider-item .producto {
     text-align: center; /* Centra el contenido del producto */
 }
@@ -280,51 +290,79 @@ body.loaded .MET2BANNER {
     object-fit: cover; /* Asegura que la imagen cubra todo el contenedor sin distorsión */
 }
 
-.slider-control {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    z-index: 1000; /* Asegura que las flechas estén por encima de otros elementos */
+/* Estilos del slider */
+.slider {
+    position: relative;
+    overflow: hidden;
+    width: 100%; /* Ocupa el ancho completo de la página */
+    max-width: 1200px; /* Ajusta el máximo ancho del slider si es necesario */
+    margin: 0 auto; /* Centra el slider horizontalmente */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para el slider */
+    height: 400px; /* Ajusta la altura del slider según sea necesario */
 }
 
-.slider-control-prev {
-    left: 10px; /* Ajusta la posición de la flecha previa */
+/* Contenedor de los elementos del slider */
+.slider-wrapper {
+    display: flex; /* Coloca los items en una fila horizontal */
+    transition: transform 0.8s ease-in-out; /* Animación suave al cambiar de slide */
+    width: 100%; /* Asegura que el wrapper cubra todo el ancho del slider */
+    height: 100%; /* Asegura que el wrapper tenga la misma altura que el slider */
 }
 
-.slider-control-next {
-    right: 10px; /* Ajusta la posición de la flecha siguiente */
-}
-
-.slider-indicators {
-    position: absolute;
-    bottom: 10px; /* Coloca los indicadores en la parte inferior del slider */
-    left: 50%;
-    transform: translateX(-50%);
+/* Cada elemento del slider */
+.slider-item {
+    flex: 0 0 25%; /* Ajustado para mostrar 4 elementos por página (100% / 4) */
+    box-sizing: border-box;
+    padding: 10px; /* Ajusta el padding para mejorar el tamaño visible */
+    height: 100%; /* Ajusta la altura del contenedor de cada imagen al 100% del slider */
     display: flex;
-    gap: 5px;
+    justify-content: center;
+    align-items: center;
 }
 
-.slider-indicator {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background-color: rgba(0, 0, 0, 0.5);
-    cursor: pointer;
+/* Contenido del producto */
+.slider-item .producto {
+    text-align: center; /* Centra el contenido del producto */
 }
 
-.slider-indicator.active {
-    background-color: white;
+.slider-item img {
+    width: 100%; /* Asegura que las imágenes se ajusten al contenedor */
+    height: auto; /* Mantiene la proporción de aspecto de la imagen */
+    max-height: 100%; /* Limita la altura máxima de la imagen para que no se estire fuera del contenedor */
+    object-fit: cover; /* Asegura que la imagen cubra todo el contenedor sin distorsión */
 }
+
+/* Estilos para los controles del slider */
+.slider-controls {
+    text-align: center; /* Centra los botones horizontalmente */
+    margin-top: 20px; /* Margen superior para separar los controles del contenido del slider */
+}
+
+.slider-controls button {
+    background-color: #007bff; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    border: none;
+    border-radius: 50%; /* Hacer los botones redondos */
+    width: 40px; /* Ancho del botón */
+    height: 40px; /* Alto del botón */
+    font-size: 24px; /* Tamaño del texto */
+    cursor: pointer; /* Cambia el cursor cuando se pasa sobre el botón */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Efecto de transición para el fondo y la transformación */
+    margin: 0 10px; /* Espaciado horizontal entre los botones */
+}
+
+.slider-controls button:hover {
+    background-color: #0056b3; /* Color de fondo en hover */
+    transform: scale(1.1); /* Efecto de aumento en hover */
+}
+
+/* Botón "ver todo" */
 
 .view-all {
     display: block;
     width: 200px;
-    margin: 20px auto 0; /* Ajusta la separación superior con margin-top */
+    margin: 30px auto 20px;
     padding: 20px;
     font-size: 16px;
     background-color: #007bff;
@@ -333,7 +371,41 @@ body.loaded .MET2BANNER {
     border-radius: 5px;
     text-align: center;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Añade una transición suave para el efecto */
+}
+
+.view-all:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el cursor */
+    transform: scale(1.05); /* Efecto de aumento al pasar el cursor */
+}
+
+.view-all:active {
+    background-color: #0056b3; /* Cambia el color de fondo al hacer clic */
+    transform: scale(0.95); /* Reduce ligeramente el tamaño del botón */
+}
+
+
+#Banner4 {
+    text-align: center; /* Centra el contenido dentro de la sección */
+}
+
+#Banner4 img {
+    max-width: 100%; /* Asegura que la imagen no se desborde del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    display: block; /* Elimina el espacio adicional debajo de la imagen */
+    margin: 0 auto; /* Centra la imagen horizontalmente */
+}
+
+#Banner5 {
+    /* No es necesario establecer text-align ya que la imagen será el único contenido */
+    width: 100%; /* Asegura que la sección ocupe todo el ancho disponible */
+    overflow: hidden; /* Evita que el contenido desborde el contenedor */
+}
+
+#Banner5 img {
+    width: 100%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    display: block; /* Elimina el espacio adicional debajo de la imagen */
 }
 
 /* Botón "contacto" */
@@ -457,6 +529,172 @@ body.loaded .MET2BANNER {
     background-color: #0056b3;
 }
 
+/* Estilos para la sección Preentrenos-promo */
+.Preentrenos-promo {
+    background-color: #f4f4f4; /* Fondo gris claro */
+    padding: 20px; /* Espaciado interno */
+    margin-left: 40px; /* Margen a la izquierda */
+    margin-top: 20px; /* Margen superior */
+    border-left: 5px solid #0056b3; /* Borde azul a la izquierda */
+}
+
+.Preentrenos-promo h1 {
+    font-size: 24px;
+    color: #333; /* Color de texto oscuro */
+    margin: 0; /* Elimina el margen predeterminado */
+}
+
+/* Estilos para la sección Preentrenos */
+#Preentrenos {
+    background-color: #fff; /* Fondo blanco */
+    padding: 20px; /* Espaciado interno */
+}
+
+.galeria-preentrenos {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los productos se ajusten a múltiples líneas */
+    justify-content: space-around; /* Espacio uniforme entre los productos */
+}
+
+.producto-preentreno {
+    background-color: #f9f9f9; /* Fondo ligeramente gris para cada producto */
+    border: 1px solid #ddd; /* Borde gris claro */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    padding: 15px;
+    margin: 10px;
+    text-align: center;
+    width: 220px; /* Ancho fijo para cada producto */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición para los efectos de hover */
+}
+
+.producto-preentreno img {
+    max-width: 100%; /* Asegura que la imagen no exceda el contenedor */
+    border-radius: 4px; /* Bordes ligeramente redondeados en la imagen */
+}
+
+.producto-preentreno h3 {
+    font-size: 18px;
+    color: #333; /* Color de texto oscuro */
+    margin: 10px 0;
+}
+
+.producto-preentreno p {
+    color: #666; /* Texto secundario en gris */
+    margin: 5px 0;
+}
+
+.producto-preentreno .precio {
+    font-size: 20px;
+    font-weight: bold;
+    color: #0056b3; /* Color azul para el precio */
+    margin: 10px 0;
+}
+
+.producto-preentreno button {
+    background-color: #0056b3; /* Botón azul */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.producto-preentreno button:hover {
+    background-color: #003d7a; /* Color más oscuro en hover */
+}
+
+/* Efecto al pasar el cursor por encima de los productos */
+.producto-preentreno:hover {
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño del producto */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+    background-color: #fff; /* Fondo blanco para un contraste adicional */
+}
+
+/* Estilos para la sección Termogenicos-promo */
+.Termogenicos-promo {
+    background-color: #f4f4f4; /* Fondo gris claro */
+    padding: 20px; /* Espaciado interno */
+    margin-left: 40px; /* Margen a la izquierda */
+    margin-top: 20px; /* Margen superior */
+    border-left: 5px solid #0056b3; /* Borde azul a la izquierda */
+}
+
+.Termogenicos-promo h1 {
+    font-size: 24px;
+    color: #333; /* Color de texto oscuro */
+    margin: 0; /* Elimina el margen predeterminado */
+}
+
+/* Estilos para la sección de Termogénicos */
+#Termogenicos {
+    background-color: #fff; /* Fondo blanco */
+    padding: 20px; /* Espaciado interno */
+}
+
+.galeria-termogenicos {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los productos se ajusten a múltiples líneas */
+    justify-content: space-around; /* Espacio uniforme entre los productos */
+}
+
+.producto-termogenico {
+    background-color: #f9f9f9; /* Fondo ligeramente gris para cada producto */
+    border: 1px solid #ddd; /* Borde gris claro */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    padding: 15px;
+    margin: 10px;
+    text-align: center;
+    width: 220px; /* Ancho fijo para cada producto */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición para los efectos de hover */
+}
+
+.producto-termogenico img {
+    max-width: 100%; /* Asegura que la imagen no exceda el contenedor */
+    border-radius: 4px; /* Bordes ligeramente redondeados en la imagen */
+}
+
+.producto-termogenico h3 {
+    font-size: 18px;
+    color: #333; /* Color de texto oscuro */
+    margin: 10px 0;
+}
+
+.producto-termogenico p {
+    color: #666; /* Texto secundario en gris */
+    margin: 5px 0;
+}
+
+.producto-termogenico .precio {
+    font-size: 20px;
+    font-weight: bold;
+    color: #0056b3; /* Color azul para el precio */
+    margin: 10px 0;
+}
+
+.producto-termogenico button {
+    background-color: #0056b3; /* Botón azul */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.producto-termogenico button:hover {
+    background-color: #003d7a; /* Color más oscuro en hover */
+}
+
+/* Efecto al pasar el cursor por encima de los productos */
+.producto-termogenico:hover {
+    transform: scale(1.05); /* Aumenta ligeramente el tamaño del producto */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+    background-color: #fff; /* Fondo blanco para un contraste adicional */
+}
+
 
 .contacto {
     background-color: #f7f7f7;
@@ -469,9 +707,38 @@ footer {
     color: #fff;
     text-align: center;
     padding: 10px;
-    position: fixed;
+    position: relative; /* Cambio aquí para que no cubra el contenido */
     width: 100%;
     bottom: 0;
+    /* Otros estilos */
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.3); /* Opcional: sombra para destacar el footer */
+}
+
+/* Estilo del botón de desplazamiento hacia arriba */
+.scroll-to-top {
+    position: fixed; /* Fija el botón en la esquina inferior derecha */
+    bottom: 20px; /* Espacio desde el borde inferior */
+    right: 20px; /* Espacio desde el borde derecho */
+    width: 50px; /* Ancho del botón */
+    height: 50px; /* Alto del botón */
+    background-color: #000; /* Fondo negro */
+    color: #fff; /* Texto blanco */
+    border: none; /* Sin borde */
+    border-radius: 50%; /* Forma redonda */
+    display: flex; /* Usar flexbox para centrar el contenido */
+    align-items: center; /* Alinea verticalmente al centro */
+    justify-content: center; /* Alinea horizontalmente al centro */
+    font-size: 24px; /* Tamaño de la fuente de la flecha */
+    cursor: pointer; /* Cambia el cursor a mano cuando pasa sobre el botón */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para un efecto de profundidad */
+    z-index: 1000; /* Asegura que el botón esté encima de otros elementos */
+    transition: opacity 0.3s; /* Suaviza la aparición y desaparición del botón */
+    opacity: 0; /* Inicialmente oculto */
+}
+
+/* Muestra el botón cuando se hace scroll hacia abajo */
+.scroll-to-top.show {
+    opacity: 1;
 }
 
 /* Diseño Responsivo */
